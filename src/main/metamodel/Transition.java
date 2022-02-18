@@ -42,14 +42,6 @@ public class Transition {
 	{
 		conditionVariables.put(name,value);
 	}
-	public String getOperation()
-	{
-		return operation;
-	}
-	public String getConditional()
-	{
-		return conditional;
-	}
 	public int getOperationValue(String name)
 	{
 		return intVariables.get(name);

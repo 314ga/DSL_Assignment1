@@ -58,7 +58,6 @@ public class StateMachine {
 	}
 
 	public StateMachine set(String name, int i) {
-		intVariables.put(name,i);
 		current.getTransitions().get(current.getTransitions().size()-1).setOperation("set");
 		current.getTransitions().get(current.getTransitions().size()-1).setOperationValue(name,i);
 
@@ -66,16 +65,14 @@ public class StateMachine {
 	}
 
 	public StateMachine increment(String name) {
-		intVariables.put(name,intVariables.get(name)+1);
 		current.getTransitions().get(current.getTransitions().size()-1).setOperation("increment");
+		current.getTransitions().get(current.getTransitions().size()-1).setOperationValue(name,1);
 		return this;
 	}
 
 	public StateMachine decrement(String name) {
-		intVariables.put(name,intVariables.get(name)-1);
 		current.getTransitions().get(current.getTransitions().size()-1).setOperation("decrement");
-
-
+		current.getTransitions().get(current.getTransitions().size()-1).setOperationValue(name,-1);
 		return this;
 	}
 

@@ -10,7 +10,6 @@ public class State {
 	private String name;
 	private List<Transition> trans = new ArrayList<>();
 
-
 	public State(String name) {
 		this.name = name;
 	}

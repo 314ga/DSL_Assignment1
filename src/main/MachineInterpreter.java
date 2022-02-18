@@ -10,7 +10,6 @@ import java.util.Map;
 public class MachineInterpreter {
 
 	private State currentState; // runtime state
-
 	private Map<String, Integer> intVariables = new HashMap<>();
 
 	public void run(Machine m)
@@ -67,18 +66,9 @@ public class MachineInterpreter {
 							if(t.hasSetOperation())
 								intVariables.put(t.getOperationVariableName(),t.getOperationValue(t.getOperationVariableName()));
 							else if(t.hasIncrementOperation())
-							{
-								if (intVariables.size() < 1)
-									intVariables.put(t.getOperationVariableName(), 1);
-								else
-									intVariables.put(t.getOperationVariableName(), intVariables.get(t.getOperationVariableName()) + 1);
-							}
-							else if(t.hasDecrementOperation()) {
-								if (intVariables.size() < 1)
-									intVariables.put(t.getOperationVariableName(), -1);
-								else
-									intVariables.put(t.getOperationVariableName(), intVariables.get(t.getOperationVariableName()) - 1);
-							}
+								intVariables.put(t.getOperationVariableName(), intVariables.get(t.getOperationVariableName()) + 1);
+							else if(t.hasDecrementOperation())
+								intVariables.put(t.getOperationVariableName(), intVariables.get(t.getOperationVariableName()) - 1);
 							else
 								break;
 
